@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<!--
 		Licensed to the Apache Software Foundation (ASF) under one or more
 		contributor license agreements.  See the NOTICE file distributed with
@@ -44,7 +42,8 @@
 		<connection>scm:git:git@github.com:BeamFoundry/bundles-parent.git</connection>
 		<developerConnection>scm:git:git@github.com:BeamFoundry/bundles-parent.git</developerConnection>
 		<url>git@github.com:BeamFoundry/bundles-parent.git</url>
-	</scm>
+	  <tag>org.beamfoundry.bundles.bundles-parent-1.0.0</tag>
+  </scm>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -96,17 +95,26 @@
                         </configuration>
                     </plugin>
                     <!-- We want to sign the artifact, the POM, and all attached artifacts -->
-                    <plugin>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.4</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
+					<plugin>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.5</version>
+						<executions>
+							<!--
+							<execution>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+							-->
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
                 </plugins>
             </build>
         </profile>
