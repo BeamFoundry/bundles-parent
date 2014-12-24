@@ -85,7 +85,7 @@
             <id>release</id>
             <build>
                 <plugins>
-                    <!-- We want to deploy the artifact to a staging location for perusal -->
+					<!--
                     <plugin>
                         <inherited>true</inherited>
                         <artifactId>maven-deploy-plugin</artifactId>
@@ -93,7 +93,8 @@
                         <configuration>
                             <updateReleaseInfo>true</updateReleaseInfo>
                         </configuration>
-                    </plugin>
+					</plugin>
+					-->
                     <!-- We want to sign the artifact, the POM, and all attached artifacts -->
 					<plugin>
 						<artifactId>maven-gpg-plugin</artifactId>
