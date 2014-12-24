@@ -42,8 +42,8 @@
 		<connection>scm:git:git@github.com:BeamFoundry/bundles-parent.git</connection>
 		<developerConnection>scm:git:git@github.com:BeamFoundry/bundles-parent.git</developerConnection>
 		<url>git@github.com:BeamFoundry/bundles-parent.git</url>
-	  <tag>org.beamfoundry.bundles.bundles-parent-1.0.0</tag>
-  </scm>
+		<tag>org.beamfoundry.bundles.bundles-parent-1.0.0</tag>
+	</scm>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -70,7 +70,6 @@
 					<version>2.4.2</version>
 					<configuration>
 						<useReleaseProfile>false</useReleaseProfile>
-						<preparationGoals>clean install</preparationGoals>
 						<goals>deploy</goals>
 						<releaseProfiles>release</releaseProfiles>
 						<autoVersionSubmodules>false</autoVersionSubmodules>
@@ -85,7 +84,6 @@
             <id>release</id>
             <build>
                 <plugins>
-					<!--
                     <plugin>
                         <inherited>true</inherited>
                         <artifactId>maven-deploy-plugin</artifactId>
@@ -94,7 +92,6 @@
                             <updateReleaseInfo>true</updateReleaseInfo>
                         </configuration>
 					</plugin>
-					-->
 					<plugin>
 						<groupId>org.sonatype.plugins</groupId>
 						<artifactId>nexus-staging-maven-plugin</artifactId>
@@ -106,18 +103,10 @@
 							<autoReleaseAfterClose>true</autoReleaseAfterClose>
 						</configuration>
 					</plugin>
-                    <!-- We want to sign the artifact, the POM, and all attached artifacts -->
 					<plugin>
 						<artifactId>maven-gpg-plugin</artifactId>
 						<version>1.5</version>
 						<executions>
-							<!--
-							<execution>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-							-->
 							<execution>
 								<id>sign-artifacts</id>
 								<phase>verify</phase>
@@ -131,6 +120,5 @@
             </build>
         </profile>
     </profiles>
-
 
 </project>
